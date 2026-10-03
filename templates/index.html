@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ComicCraft AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="container">
+
+            <span class="badge">
+                ComicCraft AI
+            </span>
+
+            <h1>
+                Turn Your Idea Into a Comic
+            </h1>
+
+            <p>
+                Create a five-panel comic from a simple
+                story idea using AI-generated story,
+                artwork, and PDF export.
+            </p>
+
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="card">
+
+            <h2>
+                Create Your Comic
+            </h2>
+
+            {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+
+            <form
+                action="/generate"
+                method="post"
+            >
+
+                <label for="story_prompt">
+                    Story Idea
+                </label>
+
+                <textarea
+                    id="story_prompt"
+                    name="story_prompt"
+                    rows="5"
+                    maxlength="2000"
+                    placeholder="Example: A young inventor discovers a mysterious machine..."
+                    required
+                ></textarea>
+
+
+                <div class="grid">
+
+                    <div>
+                        <label for="character_name">
+                            Character Name
+                        </label>
+
+                        <input
+                            id="character_name"
+                            name="character_name"
+                            type="text"
+                            maxlength="80"
+                            placeholder="Example: Arjun"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="setting">
+                            Setting
+                        </label>
+
+                        <input
+                            id="setting"
+                            name="setting"
+                            type="text"
+                            maxlength="120"
+                            placeholder="Example: Chennai"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="tone">
+                            Tone
+                        </label>
+
+                        <input
+                            id="tone"
+                            name="tone"
+                            type="text"
+                            maxlength="60"
+                            placeholder="Example: Funny and adventurous"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="art_style">
+                            Art Style
+                        </label>
+
+                        <input
+                            id="art_style"
+                            name="art_style"
+                            type="text"
+                            maxlength="80"
+                            placeholder="Example: Colorful comic book"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="button"
+                    type="submit"
+                >
+                    Generate Comic
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

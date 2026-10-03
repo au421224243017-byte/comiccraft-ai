@@ -1,0 +1,18 @@
+# Secrets - never upload
+.env
+
+# Python
+.venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Generated files
+static/panels/*
+static/exports/*
+!static/panels/.gitkeep
+!static/exports/.gitkeep
+
+# VS Code personal settings
+.vscode/

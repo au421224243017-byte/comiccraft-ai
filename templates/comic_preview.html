@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Comic Preview - ComicCraft AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+    <header class="hero small">
+        <div class="container">
+
+            <span class="badge">
+                ComicCraft AI
+            </span>
+
+            <h1>
+                Your Comic Is Ready
+            </h1>
+
+            <p>
+                Preview your generated five-panel comic
+                and export it as a PDF.
+            </p>
+
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <div class="actions">
+
+            <a
+                id="download-pdf"
+                class="button"
+                href="{{ pdf_url }}"
+                download
+            >
+                Download PDF
+            </a>
+
+            <a
+                class="button secondary"
+                href="/"
+            >
+                Create Another Comic
+            </a>
+
+        </div>
+
+
+        <section class="comic-grid">
+
+            {% for panel in panels %}
+
+                <article class="card panel">
+
+                    {% if panel.image_url %}
+
+                        <img
+                            src="{{ panel.image_url }}"
+                            alt="Comic panel {{ panel.panel_number }}: {{ panel.title }}"
+                        >
+
+                    {% endif %}
+
+
+                    <div class="panel-content">
+
+                        <div class="panel-number">
+                            Panel {{ panel.panel_number }}
+                        </div>
+
+                        <h2>
+                            {{ panel.title }}
+                        </h2>
+
+                        <p>
+                            <em>{{ panel.scene_description }}</em>
+                        </p>
+
+                        <p>
+                            {{ panel.caption }}
+                        </p>
+
+                        <details open>
+
+                            <summary>
+                                Narration
+                            </summary>
+
+                            <p>
+                                {{ panel.narration }}
+                            </p>
+
+                        </details>
+
+                    </div>
+
+                </article>
+
+            {% endfor %}
+
+        </section>
+
+    </main>
+
+    <script>
+        // After the PDF download starts, show the export success page.
+        var downloadLink = document.getElementById("download-pdf");
+
+        downloadLink.addEventListener("click", function () {
+            setTimeout(function () {
+                window.location.href =
+                    "/export-success?pdf_url=" +
+                    encodeURIComponent(downloadLink.getAttribute("href"));
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>

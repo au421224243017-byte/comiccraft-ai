@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.hero {
+    padding: 80px 0;
+    background: #172033;
+    color: white;
+}
+
+.hero.small {
+    padding: 50px 0;
+}
+
+.hero h1 {
+    margin: 12px 0;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+}
+
+.hero p {
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: white;
+    color: #172033;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+main.container {
+    padding: 45px 0;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+form {
+    margin-top: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #d8ddea;
+    border-radius: 10px;
+    font: inherit;
+    margin-bottom: 20px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.button {
+    display: inline-block;
+    border: 0;
+    border-radius: 10px;
+    padding: 13px 20px;
+    background: #172033;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button.secondary {
+    background: #e8ebf2;
+    color: #172033;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.comic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.panel {
+    padding: 0;
+    overflow: hidden;
+}
+
+.panel img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.panel-content {
+    padding: 22px;
+}
+
+.panel-number {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.panel-content p {
+    line-height: 1.6;
+}
+
+details {
+    margin-top: 15px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.error {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #ffe6e6;
+    color: #8b1e1e;
+}
+
+.center {
+    min-height: 80vh;
+    display: grid;
+    place-items: center;
+}
+
+@media (max-width: 750px) {
+    .grid,
+    .comic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 55px 0;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
